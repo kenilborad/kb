@@ -5,6 +5,7 @@ const getResponse = require('../../../utils/response-generator');
 const logOut = async (req, res, next) => {
   try {
     req.user.tokens = req.user.tokens.filter((token) => token.token !== req.token);
+    console.log(req.user.tokens);
     await req.user.save();
     return res.send(getResponse(StatusCodes.OK, 'User LogOut successfully......'));
   } catch (error) {
