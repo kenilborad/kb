@@ -1,0 +1,18 @@
+input SignedUrlDataInput {
+  fileName: String!
+  contentType: String!
+}
+
+type SignedUrlType {
+  signedUrl: String
+  key: String
+}
+
+type SignedUrlDataResponse {
+  message: String
+  data: SignedUrlType
+}
+
+type Query {
+  getSignedPutUrl(data: SignedUrlDataInput): SignedUrlDataResponse! 
+}
